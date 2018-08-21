@@ -1,0 +1,37 @@
+html {
+  font-size: 100px;
+  height: 100%;
+  font-family: 'Kanit', sans-serif, 'Microsoft JhengHei';
+}
+body {
+  margin: 0;
+  font-size: 0.14rem;
+  font-weight: 400;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Kanit', sans-serif, 'Microsoft JhengHei';
+  line-height: normal;
+  overflow-x: hidden;
+}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+input::-ms-clear {
+  display: none;
+}
+input::-ms-reveal {
+  display: none;
+}
