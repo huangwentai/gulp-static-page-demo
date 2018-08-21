@@ -11,24 +11,31 @@
 ## gulpfile.js
 ```js
 var gulp = require('gulp');
-var fileinclude = require('gulp-file-include');
+var fileinclude = require('gulp-advanced-file-include');
 var less = require('gulp-less');
 var connect = require('gulp-connect');
 var autoprefixer = require('gulp-autoprefixer');
 var gulpSequence = require('gulp-sequence');
+var gulpHtmlVersion = require('gulp-html-version');
 //include文件,完成后自動刷新頁面
 gulp.task('concat',function() {
     return gulp.src([
-        "./content/*.html",
-        "!./content/footer.html",
-        "!./content/header.html",
-        "!./content/js-css.html",
-        "!./content/popup.html",
-        "!./content/tab-list.html"
-        ])
+    	"./content/*.html",
+    	])
     .pipe(fileinclude({
         prefix: '@@',
-        basepath: './'
+        basepath: './content',
+        context: {
+            footerBetter: 'block',
+            level1:"",
+            level2:"",
+            hasMsg:""
+        }
+    }))
+    .pipe(gulpHtmlVersion({
+        paramName: 'ver',
+        paramType: 'timestamp',
+        suffix: ['css', 'js', 'jpg', 'png']
     }))
     .pipe(gulp.dest('./'));
 });
@@ -75,7 +82,7 @@ gulp.task('connect',function() {
     connect.server({
         root: './',
         livereload: true,
-        port: 8881
+        port: 8882
     });
 });
 
